@@ -20,9 +20,9 @@ const Head = () => {
           type="text"
           placeholder="Search"
           id=""
-          className="border border-black w-[450px] px-3 py-2 rounded-l-3xl"
+          className="border border-gray-400 w-[450px] px-3 py-2 rounded-l-3xl"
         />
-        <button className="border border-black px-3 py-2 rounded-r-3xl border-l-0">Search</button>
+        <button className="border border-gray-400 px-3 py-2 rounded-r-3xl border-l-0 bg-gray-100 text-gray-600">Search</button>
       </div>
       <div className="-my-4">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMfnEpNt3m7Gm_5RQO54mtgpmejdTziTlDkDD5IxnB8w&s" alt="user" className="h-16 " />

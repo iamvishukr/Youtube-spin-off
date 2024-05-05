@@ -4,7 +4,7 @@ import Main from './Main'
 
 const Body = () => {
   return (
-    <div className='flex justify-between m-8'>
+    <div className='flex justify-between'>
         <Sidebar />
         <Main />
     </div>
