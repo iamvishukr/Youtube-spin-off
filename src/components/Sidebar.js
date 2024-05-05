@@ -14,8 +14,13 @@ import { IoSettings } from "react-icons/io5";
 import { MdOutlineFlag } from "react-icons/md";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { VscFeedback } from "react-icons/vsc";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+
+  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
+
+  if (!isMenuOpen) return null;   //early return
   return (
     <div className="shadow-lg w-56 px-6 py-4">
       <section>
