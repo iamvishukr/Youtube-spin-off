@@ -15,16 +15,17 @@ import { MdOutlineFlag } from "react-icons/md";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { VscFeedback } from "react-icons/vsc";
 import { useSelector } from "react-redux";
+import SidebarTwo from "./SidebarTwo";
 
 const Sidebar = () => {
 
   const isMenuOpen = useSelector(store => store.app.isMenuOpen);
 
-  if (!isMenuOpen) return null;   //early return
+  if (!isMenuOpen) return <SidebarTwo/>;   //early return
   return (
-    <div className="shadow-lg w-56 px-6 py-4">
+    <div className="shadow-lg w-56 px-2 flex flex-col gap-4 ">
       <section>
-        <ul className="p-2 ">
+        <ul className=" ml-3">
           <li className="py-2 flex gap-4">
             <MdHome size={25} /> Home
           </li>
@@ -41,7 +42,7 @@ const Sidebar = () => {
       <hr />
       <section>
         <h1 className="font-bold py-1">Subscriptions</h1>
-        <ul className="p-2  ">
+        <ul className="ml-3">
           <li className="py-1 flex gap-4">
             <MdLibraryMusic size={20} />
             Music
@@ -63,7 +64,7 @@ const Sidebar = () => {
       <hr />
       <section>
         <h1 className="font-bold py-1">Explore</h1>
-        <ul className="p-2 ">
+        <ul className="ml-3 ">
           <li className="py-1 flex gap-4">
             <FiTrendingUp size={20} />
             Trending
@@ -84,7 +85,7 @@ const Sidebar = () => {
       </section>
       <hr />
       <section>
-        <ul className="p-2">
+        <ul className="ml-3">
           <li className="py-1 flex gap-4">
             <IoSettings size={20} />
             Settings

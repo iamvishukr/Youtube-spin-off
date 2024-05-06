@@ -14,8 +14,8 @@ const Head = () => {
   return (
     <div className="flex  p-3">
       <div className="flex gap-6">
-        <GiHamburgerMenu className="cursor-pointer" size={30} onClick={()=> toggleMenuHandler()}/>
-        <FaYoutube size={40} className="-mt-1 cursor-pointer" color="purple" />
+        <GiHamburgerMenu className="cursor-pointer ml-6" size={25} onClick={()=> toggleMenuHandler()}/>
+        <FaYoutube size={40} className="-mt-1 cursor-pointer" color="purple" /><h1 className="text-2xl font-bold -ml-5">WhoTube</h1>
       </div>
       <div className="m-auto ">
         <input
