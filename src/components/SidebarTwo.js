@@ -8,7 +8,7 @@ import { FiTrendingUp } from "react-icons/fi";
 
 const SidebarTwo = () => {
   return (
-    <div className="shadow-lg w-18 px-2 h-screen ">
+    <div className="shadow-lg w-18 px-2 h-screen">
       <ul className=" text-center gap-8 flex flex-col  ">
         <li className="text-[12px]"><MdHome className="ml-6" size={25} />Home</li>
         <li className="text-[12px]"><SiYoutubeshorts className="ml-6" size={20} />Shorts</li>
