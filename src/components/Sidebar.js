@@ -16,6 +16,7 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 import { VscFeedback } from "react-icons/vsc";
 import { useSelector } from "react-redux";
 import SidebarTwo from "./SidebarTwo";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
 
@@ -26,9 +27,10 @@ const Sidebar = () => {
     <div className="shadow-lg w-56 px-2 flex flex-col gap-4  ">
       <section>
         <ul className=" ml-3">
-          <li className="py-2 flex gap-4">
+         <Link to={'/'}> <li className="py-2 flex gap-4">
             <MdHome size={25} /> Home
           </li>
+        </Link>
           <li className="py-2 flex gap-5">
             <SiYoutubeshorts size={20} />
             Shorts
