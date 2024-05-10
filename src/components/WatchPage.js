@@ -2,14 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
+import Comments from "./Comments";
+
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
-  console.log(searchParams.get('v'));
+ console.log(searchParams.get('v'));
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+
+
   return (
     <div className="p-4 mx-32 ">
       <iframe
@@ -18,12 +22,16 @@ const WatchPage = () => {
         height="450"
         src={"https://www.youtube.com/embed/" + searchParams.get('v')}
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
+        referrerPolicy="strict-origin-when-cross-origin"
         
         allowFullScreen
       ></iframe>
+
+      <div>
+        <Comments />
+      </div>
     </div>
   );
 };
