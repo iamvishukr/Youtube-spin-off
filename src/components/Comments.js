@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { GOOGLE_API_KEY } from "../utils/constant";
+import { useSearchParams } from "react-router-dom";
 
-//import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import { COMMENTS_API } from "../utils/constant";
-//import moment from "moment";
-
-const Comments = ({ videoId }) => {
+const Comments = () => {
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get('v'));
   const [comments, setComments] = useState([]);
 
   const getComments = async () => {
-    const data = await fetch(COMMENTS_API + videoId);
-    const json = await data.json();
-    setComments(json.items);
+    try {
+      const response = await fetch(
+        "https://www.googleapis.com/youtube/v3/commentThreads?key="+GOOGLE_API_KEY+"&textFormat=plainText&part=snippet&videoId="+searchParams.get('v')+"&maxResults=50"
+
+      );
+      const data = await response.json();
+      //console.log(data)
+      setComments(data.items);
+      
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
   };
 
   useEffect(() => {
     getComments();
-  }, [videoId]);
+  }, []);
 
   return (
     <div>
@@ -27,9 +36,9 @@ const Comments = ({ videoId }) => {
           textDisplay,
           publishedAt,
           likeCount,
-        } = comment?.snippet?.topLevelComment?.snippet;
+        } = comment.snippet.topLevelComment.snippet;
         return (
-          <div key={comment?.id} className="flex gap-4 my-4">
+          <div key={comment.id} className="flex gap-4 my-4">
             <img
               src={authorProfileImageUrl}
               alt="author"
@@ -40,15 +49,10 @@ const Comments = ({ videoId }) => {
                 <h3 className="text-md font-semibold text-gray-700">
                   {authorDisplayName}
                 </h3>{" "}
-                {/* <p className="text-xs text-gray-500">
-                  {moment(publishedAt).fromNow()}
-                </p> */}
               </div>
               <p>{textDisplay}</p>
               <div className="flex items-center gap-2">
-                {/* <AiOutlineLike />
-                {kFormatter(likeCount)}
-                <AiOutlineDislike /> */}
+                Likes: {likeCount}
               </div>
             </div>
           </div>

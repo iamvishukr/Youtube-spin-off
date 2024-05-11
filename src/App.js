@@ -19,7 +19,7 @@ function App() {
         },
         {
           path: '/watch',
-          element: <WatchPage />
+          element: <WatchPage />,
         }
       ]
     }]

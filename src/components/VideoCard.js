@@ -23,4 +23,13 @@ const VideoCard = ({ info }) => {
   );
 };
 
+  export const Ad = ({info})=> {
+    return (
+      <div className="border border-red-600 p-4 m-2" title="Ad">
+        <VideoCard info={info}>
+          <h2 className="align-text-top font-bold text-black">Ad *</h2>
+        </VideoCard>
+      </div>
+    )
+  }
 export default VideoCard;
