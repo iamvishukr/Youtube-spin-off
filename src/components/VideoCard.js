@@ -25,10 +25,9 @@ const VideoCard = ({ info }) => {
 
   export const Ad = ({info})=> {
     return (
-      <div className="border border-red-600 p-4 m-2" title="Ad">
-        <VideoCard info={info}>
-          <h2 className="align-text-top font-bold text-black">Ad *</h2>
-        </VideoCard>
+      <div className=" rounded-3xl flex flex-col-reverse" title="Ad">
+        <div className=" ml-4 text-gray-600 flex gap-2"><h2 className="text-black font-bold">Sponsored</h2>•   {info.snippet.channelTitle}</div>
+        <VideoCard info={info} />
       </div>
     )
   }
