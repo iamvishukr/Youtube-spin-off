@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import Comments from "./Comments";
 import ScrollToTop from "./ScrollToTop";
 
+
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   console.log(searchParams.get("v"));
@@ -33,7 +34,9 @@ const WatchPage = () => {
 
       <div>
         <ScrollToTop />
-        <Comments />
+        { <Comments /> }
+        {/* <CommentsContainer /> */}
+        
       </div>
     </div>
   );

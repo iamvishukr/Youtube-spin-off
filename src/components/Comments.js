@@ -14,7 +14,7 @@ const Comments = () => {
 
       );
       const data = await response.json();
-      //console.log(data)
+      console.log(data)
       setComments(data.items);
       
     } catch (error) {
@@ -34,26 +34,38 @@ const Comments = () => {
           authorDisplayName,
           authorProfileImageUrl,
           textDisplay,
-          publishedAt,
+          
           likeCount,
+  
         } = comment.snippet.topLevelComment.snippet;
+        const {
+          totalReplyCount,
+          canReply
+        } = comment.snippet
         return (
-          <div key={comment.id} className="flex gap-4 my-4">
+          <div key={comment.id} className="flex gap-4 my-4 bg-gray-100 p-2">
             <img
               src={authorProfileImageUrl}
               alt="author"
               className="rounded-full h-10"
             />
             <div className="flex flex-col">
-              <div className="flex gap-2 items-center">
-                <h3 className="text-md font-semibold text-gray-700">
+              <div className="flex gap-2 items-center ">
+                <h3 className="text-md font-semibold text-gray-700 ">
                   {authorDisplayName}
+                
                 </h3>{" "}
               </div>
               <p>{textDisplay}</p>
               <div className="flex items-center gap-2">
                 Likes: {likeCount}
+                
               </div>
+              <div>
+                Replies: {totalReplyCount}
+                {canReply}
+              </div>
+
             </div>
           </div>
         );

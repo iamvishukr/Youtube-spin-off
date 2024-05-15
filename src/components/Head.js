@@ -8,6 +8,9 @@ import { IoMdSearch } from "react-icons/io";
 
 import { YOUTUBE_SEARCH_API } from "../utils/constant";
 import { cacheResults } from "../utils/searchSlice";
+import SearchList from "./SearchList";
+import { Link } from "react-router-dom";
+
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -37,6 +40,8 @@ const Head = () => {
       [searchQuery] : json[1],
     }))
   };
+
+  //const searchResult = setSearchQuery();
 
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
@@ -71,7 +76,9 @@ const Head = () => {
        {showSuggestions && <div className="absolute py-2 px-0 bg-white w-[37rem] ml-1 shadow-lg rounded-lg border-gray-200" >
           <ul >
             {suggestions.map((suggestion) => (
-              <li className="flex hover:bg-slate-100  gap-2 px-3 text-lg" key={suggestion}>
+              <li className="flex hover:bg-slate-100  gap-2 px-3 text-lg" key={suggestion} onClick={()=>{
+                <Link to={<SearchList />} />
+              }}>
                 <IoMdSearch className="mt-1 " />
                 {suggestion}
               </li>
