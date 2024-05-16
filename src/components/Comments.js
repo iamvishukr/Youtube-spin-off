@@ -43,7 +43,7 @@ const Comments = () => {
           canReply
         } = comment.snippet
         return (
-          <div key={comment.id} className="flex gap-4 my-4 bg-gray-100 p-2">
+          <div key={comment.id} className="flex gap-4 my-3 bg-gray-100 p-2 w-[68%] rounded-lg shadow-lg">
             <img
               src={authorProfileImageUrl}
               alt="author"
