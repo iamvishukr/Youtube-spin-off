@@ -55,8 +55,8 @@ const Head = () => {
           size={25}
           onClick={() => toggleMenuHandler()}
         />
-        <FaYoutube size={40} className="-mt-1 cursor-pointer" color="purple" />
-        <h1 className="text-2xl font-bold -ml-5">WhoTube</h1>
+        <FaYoutube size={40} className="-mt-1 cursor-pointer" color="red" />
+        <h1 className="text-2xl font-bold -ml-5">ME<span className="text-red-600">Tube</span></h1>
       </div>
       <div className="m-auto ">
         <input
