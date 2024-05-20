@@ -7,13 +7,25 @@ const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     getVideos();
+
+    window.addEventListener("scroll", handleScroll);
+    return() =>  window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleScroll = () => {
+    if(window.scrollY + window.innerHeight >= document.body.scrollHeight){
+      //console.log("fetch more data...");
+      getVideos();
+    };
+  }
 
   const getVideos = async () => {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const json = await data.json();
     //console.log(json.items);
-    setVideos(json.items);
+    setVideos((items) => [...items, ...json.items]);
+
+
   };
   return (
     <div className="flex flex-wrap">
